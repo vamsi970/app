@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard Application - Welfare Schemes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(18, 17, 52);
+            color: white;
+        }
+
+        .top-box {
+            background-color: #333;
+            color: black;
+            padding: 10px;
+        }
+
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-bar img {
+            height: 40px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgb(18, 17, 52);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin: 0 0 20px 0;
+            font-size: 24px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        header {
+            color: white;
+            padding: 12px 0px 0px 5px;
+            margin: 10px 17px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        } 
+        
+        header h3 {
+            padding-left: 5px;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .section {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h3 {
+                font-size: 16px;
+            }
+
+            .section {
+                width: 95%;
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            li {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button Header -->
+    <header onclick="navigateBack()">
+        <img src="back-arrow.svg" alt="back-arrow">
+        <h3>Back</h3>
+    </header>
+
+    <!-- Main Content Section -->
+    <div id="home" class="section">
+        <h2>Welfare Schemes</h2>
+        <ul>
+            <li><strong>1. Beti Bachao Beti Padhao:</strong> Aimed at improving the efficiency of welfare services for girls.</li>
+            <li><strong>2. Mahila E-Haat:</strong> An online marketing platform for women entrepreneurs.</li>
+            <li><strong>3. Pradhan Mantri Matru Vandana Yojana:</strong> A maternity benefit program providing cash incentives.</li>
+            <li><strong>4. Nari Shakti Puraskar:</strong> An initiative to recognize the contributions of women in various fields.</li>
+            <li><strong>5. One Stop Centre Scheme:</strong> Providing integrated support and assistance to women affected by violence.</li>
+            <li><strong>6. Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA):</strong> Provides a legal guarantee for at least 100 days of unskilled work in a financial year to every rural household.</li>
+            <li><strong>7. Sukanya Samriddhi Yojana (SSY):</strong> A savings scheme for the girl child, aimed at encouraging parents to secure the financial future of girls by offering high-interest savings for education and marriage expenses.</li>
+            <li><strong>8. Working Women Hostel Scheme:</strong> Provides safe and affordable accommodation for working women, especially those away from their families, ensuring secure housing facilities with daycare support.</li>
+            <li><strong>9. National Creche Scheme:</strong> Offers affordable daycare services to working mothers, ensuring a safe environment for children up to six years of age while supporting women’s participation in the workforce.</li>
+            <li><strong>10. Support to Training and Employment Program for Women (STEP):</strong> Aims to provide skills training to marginalized women to increase their employability and economic self-reliance across sectors like agriculture, horticulture, and handicrafts.</li>
+            <li><strong>11. Ujjawala Scheme:</strong> Designed to prevent trafficking and rescue and rehabilitate victims, providing them with shelter, food, counseling, and legal aid to reintegrate them into society.</li>
+            <li><strong>12. Swadhar Greh Scheme:</strong> Offers temporary shelter, food, and healthcare to women in distress, including widows, survivors of domestic violence, and the homeless, to ensure their social and economic rehabilitation.</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function navigateBack() {
+            // Redirect to the desired file when the back button is clicked
+            window.location.href = "index.html"; // Replace with the actual file name or URL
+        }
+    </script>
+</body>
+</html>

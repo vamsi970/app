@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <link rel="stylesheet" href="view-profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="back-button" onclick="history.back()">← Back</div>
+        
+        <div class="profile-header">
+            <div id="profilePicture" class="profile-picture"></div>
+            <h2 id="userName"></h2>
+            <p id="userEmail"></p>
+        </div>
+        
+        <div class="profile-options">
+            <div class="box">
+            <div id="updateProfilePicture" class="profile-option">Update Profile Picture</div>
+        </div>
+        <div class="box">
+            <div id="removeProfilePicture" class="profile-option">Remove Profile Picture</div>
+        </div>
+            <div class="box">
+            <div id="changeEmergencyNumber" class="profile-option">Change Emergency Number</div>
+        </div>
+            <div class="box">
+            <div id="logout" class="profile-option">Logout</div>
+        </div>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+
+    <script src="view-profile.js"></script>
+</body>
+</html>

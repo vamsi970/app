@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="dark-mode">
+
+    <!-- Logo Bar at the top -->
+    <div class="top-box">
+        <div class="logo-bar">
+            <div class="left">
+                <img src="shared image.png" alt="Logo">
+                <h1>SafeGuard</h1>
+            </div>
+            <div class="right">
+                <img src="hamburg.svg" alt="Hamburger Menu" id="hamburger" onclick="toggleMenu()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div id="home" class="section home-content">
+        <h2 data-lang="en">Home</h2>
+        <h2 data-lang="hi" style="display:none;">मुख्य पृष्ठ</h2>
+        <h2 data-lang="te" style="display:none;">ముఖ్య పేజీ</h2>
+        <h2 data-lang="kn" style="display:none;">ಮನೆ</h2>
+        <h2 data-lang="ta" style="display:none;">முகப்பு</h2>
+       
+        <div class="para">
+        <p data-lang="en">The SafeGuard app is an all-in-one personal safety solution, offering real-time location tracking, emergency SMS alerts, an SOS buzzer, and resources like safety tips, legal guidance for cybercrime reporting, and self-defense information to enhance user protection.</p>
+
+        <p data-lang="hi" style="display:none;">SafeGuard ऐप एक ऑल-इन-वन पर्सनल सेफ्टी समाधान है, जो रियल-टाइम लोकेशन ट्रैकिंग, इमरजेंसी एसएमएस अलर्ट, एसओएस बजर और सुरक्षा सुझाव, साइबर अपराध रिपोर्टिंग के लिए कानूनी मार्गदर्शन और आत्मरक्षा जानकारी जैसी सुविधाएं प्रदान करता है ताकि उपयोगकर्ता की सुरक्षा सुनिश्चित हो सके।</p>
+        
+        <p data-lang="te" style="display:none;">SafeGuard యాప్ ఒక ఆల్-ఇన్-వన్ వ్యక్తిగత భద్రతా పరిష్కారం, ఇది రియల్-టైమ్ లొకేషన్ ట్రాకింగ్, అత్యవసర SMS అలర్ట్‌లు, SOS బజర్ మరియు భద్రతా చిట్కాలు, సైబర్ నేర నివేదికల కోసం చట్టపరమైన మార్గదర్శకాలు మరియు స్వీయ రక్షణ సమాచారాన్ని అందిస్తుంది.</p>
+        
+        <p data-lang="kn" style="display:none;">SafeGuard ಆ್ಯಪ್ ಎಲ್ಲವನ್ನು ಒಳಗೊಂಡಿರುವ ಒಂದು ವೈಯಕ್ತಿಕ ಸುರಕ್ಷತಾ ಪರಿಹಾರವಾಗಿದೆ, ಇದು ರಿಯಲ್-ಟೈಮ್ ಸ್ಥಳದ ಅನುಸರಣೆ, ತುರ್ತು SMS ಅಲರ್ಟ್‌ಗಳು, SOS ಬಜರ್ ಮತ್ತು ಸೈಬರ್ ಅಪರಾಧ ವರದಿ ಮಾಡಲು ಕಾನೂನು ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ಆತ್ಮರಕ್ಷಣೆ ಮಾಹಿತಿ ನೀಡುತ್ತದೆ.</p>
+        
+        <p data-lang="ta" style="display:none;">SafeGuard ஆப்ஸ் ஒரே இடத்தில் பலவற்றை உள்ளடக்கிய தனிப்பட்ட பாதுகாப்பு தீர்வாகும், இது நேரடி இடம் கண்காணிப்பு, அவசர எஸ்எம்எஸ் எச்சரிக்கைகள், SOS பசர் மற்றும் பாதுகாப்பு குறிப்புகள், சைபர் குற்ற அறிவிக்கலுக்கான சட்ட வழிகாட்டல் மற்றும் சுய பாதுகாப்பு தகவலை வழங்குகிறது.</p>
+    </div>
+    
+    <button id="emergency-button" class="round-btn">SOS & Buzzer</button>
+    <audio id="buzzer-sound" src="buzzar.mp3" loop></audio>
+    
+    <!-- Popup Alert for Emergency Call -->
+    <div id="emergency-popup" class="popup" style="display: none;">
+        <p>Calling emergency contact and police helpline...</p>
+    </div>
+        
+        <!-- Informational Box -->
+        <div class="info-box">
+            <p>Press this button to send an SOS with your location and play a loud buzzer.</p>
+            <p style="display:none;">इस बटन को दबाकर आप अपनी स्थिति के साथ एक SOS भेज सकते हैं और एक जोरदार बजर चला सकते हैं।</p>
+            <p style="display:none;">ఈ బటన్‌ను నొక్కి మీ స్థానం తో సోస్ పంపించండి మరియు ఒక పెద్ద బజ్జర్‌ను ఆడించండి.</p>
+            <p style="display:none;">ಈ ಬಟನ್ ಅನ್ನು ಒತ್ತಿದರೆ ನೀವು ನಿಮ್ಮ ಸ್ಥಳದೊಂದಿಗೆ SOS ಕಳುಹಿಸಬಹುದು ಮತ್ತು ದೊಡ್ಡ ಶ್ರಾವಣವನ್ನು ಆಡುವಿರಿ.</p>
+            <p style="display:none;">இந்த பட்டனை அழுத்துவதன் மூலம் உங்கள் இடத்துடன் SOS ஐ அனுப்பலாம் மற்றும் பெரிய சத்தம் விளையாடலாம்.</p>
+        </div>
+    </div>
+
+    <!-- Sliding Menu -->
+    <div id="slide-menu" class="slide-menu">
+        <div class="slide-header">
+            <h3>Profile Info</h3>
+            <span onclick="toggleMenu()" class="close-btn">&times;</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <div class="profile-section" id="profileSection">
+                <div id="profilePicture" class="profile-pic">
+                </div>
+                <div class="profile-info">
+                    <h2 id="userName">User Details</h2>
+                    <button class="view-profile-btn" onclick="window.location.href='view-profile.html'">View Profile</button>
+                </div>
+            </div>
+            
+
+            <ul class="menu-list">
+                <li class="menu-item" onclick="showAbout()">
+                    <span>⚡</span>
+                    <span>
+                    <button class="view-profile-btn" onclick="window.location.href='about.html'">About App</button></span>
+                </li>
+                <li class="menu-item" onclick="location.href='welfare-schemes.html'">
+                    <span>🕒</span>
+                    <span>Welfare Schemes</span>
+                </li>
+                <li class="menu-item" onclick="showSettings()">
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Settings Section -->
+        <div id="settings" style="display: none;">
+            <h3>Settings</h3>
+            <button id="theme-toggle" onclick="toggleTheme()">Switch to Light Mode</button>
+            <div class="language-options">
+                <h4>Select Language:</h4>
+                <select id="languages" onchange="setLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="te">Telugu</option>
+                    <option value="kn">Kannada</option>
+                    <option value="ta">Tamil</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other sections -->
+    <div id="cyber-report" class="section" style="display:none;">
+        <h2>Cyber Report</h2>
+        <p>Cybercrime involves using computers or networks to commit illegal activities like hacking, identity theft, phishing, and malware distribution. It targets individuals, businesses, and governments, exploiting technology vulnerabilities, and poses challenges for law enforcement due to its global reach.</p>
+
+        <h1>To Report Cyber Crime</h1>
+        <div class="complaint-section">
+            <h2>Financial Fraud</h2>
+            <button class="complaint-btn" onclick="window.location.href='https://cybercrime.gov.in/Webform/Accept.aspx'">
+                Register a Complaint
+            </button>
+        </div>
+    
+        <div class="complaint-section cyber">
+            <h2>Other Cyber Crime</h2>
+            <button class="complaint-btn" onclick="window.location.href='https://cybercrime.gov.in/Webform/Accept.aspx'">
+                Register a Complaint
+            </button>
+        </div>
+
+        <div class="cyber-tips">
+            <h1>Cyber Safety Tips</h1>
+            <h2>Cyber awareness and hygiene for parents</h2>
+            <ul>
+                <li>Talk to your children</li>
+                <li>Notice indicators of change in behaviour</li>
+                <li>Protect your child from Cyber Grooming</li>
+                <li>Never click suspicious links or attachments</li>
+                <li>Cover your webcams</li>
+                <li>Set Secure browser settings</li>
+            </ul>
+            <h2>Cyber awareness and hygiene for teens and young adults</h2>
+            <ul>
+                <li>Secure your online presence just like you secure yourself</li>
+                <li>Be mindful of your appearance on video chat & video calls</li>
+                <li>Do not use Smartphone for taking sensitive personal photographs and videos</li>
+                <li>Protect yourself from Cyber stalking</li>
+                <li>Be cautious with sensitive Browsing</li>
+                <li>Be careful while you give your mobile devices, PC’s for servicing/repairing/selling</li>
+            </ul>
+        </div>
+        <div class="download-btns">
+            <div class="img1">
+                <a href="/downloads/CyberSafetyHindi.pdf" download="CyberSafetyHindi.pdf">
+                    <img src="download.svg" alt="">
+                    <h4>A Handbook For Students on Cyber Safety in (Hindi).</h4>
+                </a>
+            </div>
+            <div class="img2">
+                <a href="/downloads/CyberSafetyEng.pdf" download="CyberSafetyEng.pdf">
+                    <img src="download.svg" alt="">
+                    <h4>A Handbook For Students on Cyber Safety in (English).</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="safe-tips" class="section" style="display:none;">
+        <h1>Safety Tips</h1>
+        <h2>At Home</h2>
+        <ul>
+            <li>Lock doors and windows, even during the day.</li>
+            <li>Install security systems like alarms or surveillance cameras.</li>
+            <li>Be cautious with strangers; verify identities before opening the door.</li>
+            <li>Avoid sharing location on social media.</li>
+            <li>Keep emergency contacts handy and know local emergency numbers.</li>
+        </ul>
+
+        <h2>In Shopping Malls</h2>
+        <ul>
+            <li>Stay aware of surroundings and notice exits.</li>
+            <li>Guard belongings and keep bags close to avoid pickpocketing.</li>
+            <li>Avoid isolated areas like remote restrooms or parking spots.</li>
+            <li>Travel light and avoid carrying too many bags.</li>
+            <li>Park near entrances, especially after dark.</li>
+        </ul>
+    
+        <h2>While Traveling</h2>
+        <ul>
+            <li>Keep important items like passport and cash close to you.</li>
+            <li>Blend in by dressing to fit the local culture.</li>
+            <li>Share your itinerary with family or friends.</li>
+            <li>Use location-sharing apps to keep someone updated.</li>
+            <li>Avoid strangers in hotels, and don’t disclose your room number.</li>
+        </ul>
+    
+        <h2>Online Safety</h2>
+        <ul>
+            <li>Use strong, unique passwords for each account.</li>
+            <li>Be cautious of clicking on suspicious links.</li>
+            <li>Limit personal information shared on social media.</li>
+            <li>Use two-factor authentication for extra security.</li>
+            <li>Update privacy settings on social media platforms.</li>
+        </ul>
+    
+        <h2>At Parties</h2>
+        <ul>
+            <li>Go with friends and leave together.</li>
+            <li>Watch your drink and never leave it unattended.</li>
+            <li>Be aware of exits in case of emergencies.</li>
+            <li>Limit alcohol consumption to stay alert.</li>
+            <li>Have a backup transportation plan.</li>
+        </ul>
+    
+        <h2>Out Alone</h2>
+        <ul>
+            <li>Walk with confidence to avoid attracting unwanted attention.</li>
+            <li>Stay in well-lit areas and avoid shortcuts.</li>
+            <li>Avoid using headphones; stay aware of surroundings.</li>
+            <li>Carry a personal safety device, like pepper spray or a whistle.</li>
+            <li>If followed, head to a public place or group.</li>
+        </ul>
+    
+        <h2>In the Car</h2>
+        <ul>
+            <li>Lock doors immediately after entering or exiting.</li>
+            <li>Park in well-lit areas and check around your car before entering.</li>
+            <li>Keep valuables out of sight to avoid break-ins.</li>
+            <li>If you suspect you’re being followed, drive to a public place or police station.</li>
+            <li>Check the backseat before entering the car.</li>
+        </ul>
+    
+        <h2>At Work</h2>
+        <ul>
+            <li>Avoid staying late alone; leave with coworkers if possible.</li>
+            <li>Know emergency exits and security contact information.</li>
+            <li>Use lockers or locked drawers for personal belongings.</li>
+            <li>Report any suspicious behavior to HR or security.</li>
+            <li>Maintain professional boundaries with colleagues.</li>
+        </ul>
+    
+        <h2>In Schools and Colleges</h2>
+        <ul>
+            <li>Know the campus security contacts.</li>
+            <li>Use campus transport services at night, like shuttles or escorts.</li>
+            <li>Exercise caution with new friends and relationships.</li>
+            <li>Always keep dorm rooms locked, even for short absences.</li>
+            <li>Stick to populated study areas, especially at night.</li>
+        </ul>
+    
+        <h2>Public Transport</h2>
+        <ul>
+            <li>Sit near the driver or conductor when possible.</li>
+            <li>Avoid empty compartments, especially at night.</li>
+            <li>Stay alert and keep belongings close.</li>
+            <li>Don’t share travel details with strangers.</li>
+            <li>Know the route to avoid looking lost or confused.</li>
+        </ul>
+    
+        <h2>Exercising Outdoors</h2>
+        <ul>
+            <li>Exercise during daylight or in well-lit areas.</li>
+            <li>Use a running app with emergency alert features.</li>
+            <li>Inform someone of your route and expected return time.</li>
+            <li>Avoid using headphones or keep one earbud out to stay alert.</li>
+            <li>Vary your routes and times to reduce predictability.</li>
+        </ul>
+    </div>
+    
+    <div id="self-defense" class="section" style="display:none;">
+        <h2>Self Defense</h2>
+        <h4></h4>
+         <p>some of the following are self-defence techniques for womens are below listed.</p>
+         <div class="main">
+            <h2>Why Every Woman Should Learn Self-Defence?</h2>
+            <ul>
+                <li>Empowerment and Confidence</li>
+                <li>Increased Safety and Awareness</li>
+                <li>Protection for Themselves and Loved Ones</li>
+                <li>Mental and Physical Health Benefits</li>
+                <li>Independence and Self-Reliance</li>
+                <li>Preparedness for Real-Life Situations</li>
+                <li>Reduces Dependence on Safety Gadgets</li>
+            </ul>
+         </div>
+         <div class="card">
+            <h3>Knee Strike</h3>
+            <img src="knee_strike.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Palm Strike</h3>
+            <img src="palm_strike.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Elbow Strike</h3>
+            <img src="elbow_strike.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>The Thumb Gouge (Eye Poke)</h3>
+            <img src="eye_strike.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Front Kick to the Groin</h3>
+            <img src="front_kick.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Hammer Fist Strike</h3>
+            <img src="/hammer_fist.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Escape from Wrist Grab</h3>
+            <img src="escape_hand.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Bear Hug Escape</h3>
+            <img src="bear_hug_escape.jpg" alt="">
+         </div>
+         <div class="card">
+            <h3>Choke Hold Defense</h3>
+            <img src="choke_hold.jpg" alt="">
+         </div>
+    </div>
+    
+    <div id="laws-guidance" class="section" style="display:none;">
+        <h1>Women Safety Laws in India</h1>
+        <h2>Acid Attack</h2>
+        <ul>
+            <li>Section 326A: Voluntarily causing grievous hurt by use of acid.</li>
+            <li>Section 326B: Attempt to throw acid.</li>
+        </ul>
+
+        <h2>Rape and Sexual Offences</h2>
+        <ul>
+            <li>Section 375: Definition of rape.</li>
+            <li>Section 376: Punishment for rape.</li>
+            <li>Section 376A: Punishment for causing death or resulting in a persistent vegetative state of the victim.</li>
+            <li>Section 376B: Sexual intercourse by husband upon his wife during separation.</li>
+            <li>Section 376C: Sexual intercourse by a person in authority.</li>
+            <li>Section 376D: Gang rape.</li>
+            <li>Section 376E: Punishment for repeat offenders.</li>
+        </ul>
+
+        <h2>Kidnapping and Abduction</h2>
+        <ul>
+            <li>Sections 363-373: Laws related to kidnapping, abduction, and trafficking of women for various purposes.</li>
+        </ul>
+
+        <h2>Murder, Dowry Death, and Abetment of Suicide</h2>
+        <ul>
+            <li>Section 302: Punishment for murder.</li>
+            <li>Section 304B: Dowry death.</li>
+            <li>Section 306: Abetment of suicide.</li>
+        </ul>
+
+        <h2>Cruelty by Husband or Relatives</h2>
+        <ul>
+            <li>Section 498A: Punishment for cruelty by husband or relatives.</li>
+        </ul>
+
+        <h2>Outraging the Modesty of a Woman</h2>
+        <ul>
+            <li>Section 354: Assault or criminal force to woman with intent to outrage her modesty.</li>
+        </ul>
+
+        <h2>Sexual Harassment</h2>
+        <ul>
+            <li>Section 354A: Sexual harassment and punishment for the same.</li>
+        </ul>
+
+        <h2>Assault with Intent to Disrobe a Woman</h2>
+        <ul>
+            <li>Section 354B: Assault or use of criminal force to disrobe a woman.</li>
+        </ul>
+
+        <h2>Voyeurism</h2>
+        <ul>
+            <li>Section 354C: Watching or capturing the image of a woman engaging in a private act without her consent.</li>
+        </ul>
+
+        <h2>Stalking</h2>
+        <ul>
+            <li>Section 354D: Stalking (physical and online).</li>
+        </ul>
+
+        <h2>Insulting the Modesty of a Woman</h2>
+        <ul>
+            <li>Section 509: Word, gesture, or act intended to insult the modesty of a woman.</li>
+        </ul>
+
+        <h2>Domestic Violence</h2>
+        <ul>
+            <li>The Protection of Women from Domestic Violence Act, 2005: Provides protection to women from domestic violence.</li>
+        </ul>
+
+        <h2>Dowry Prohibition</h2>
+        <ul>
+            <li>The Dowry Prohibition Act, 1961: Prohibits giving or taking dowry in marriages.</li>
+        </ul>
+
+        <h2>Sexual Harassment at Workplace</h2>
+        <ul>
+            <li>The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013: Protection from sexual harassment at workplace.</li>
+        </ul>
+
+        <h2>Indecent Representation of Women</h2>
+        <ul>
+            <li>The Indecent Representation of Women (Prohibition) Act, 1986: Prohibits indecent representation of women in any form.</li>
+        </ul>
+
+        <h2>Medical Termination of Pregnancy</h2>
+        <ul>
+            <li>The Medical Termination of Pregnancy Act, 1971: Provides for safe abortion and women's reproductive rights.</li>
+        </ul>
+
+        <h2>Protection of Children from Sexual Offences (POCSO)</h2>
+        <ul>
+            <li>The Protection of Children from Sexual Offences (POCSO) Act, 2012: Protects children from sexual offenses.</li>
+        </ul>
+
+        <h2>Prevention of Human Trafficking</h2>
+        <ul>
+            <li>The Immoral Traffic (Prevention) Act, 1956: Prevents trafficking of women and children for prostitution.</li>
+        </ul>
+    </div>
+    
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-item" onclick="showSection('home')">Home</div>
+        <div class="nav-item" onclick="showSection('cyber-report')">Cyber Report</div>
+        <div class="nav-item" onclick="showSection('safe-tips')">Safety Tips</div>
+        <div class="nav-item" onclick="showSection('self-defense')">Self Defense</div>
+        <div class="nav-item" onclick="showSection('laws-guidance')">Guidance</div>
+    </div>
+
+    <!-- Buzzer Sound -->
+    <audio id="buzzer-sound">
+        <source src="buzzer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="chatbot-icon" id="chatbot-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 2C2.89543 2 2 2.89543 2 4V15C2 16.1046 2.89543 17 4 17H6V21L11 17H20C21.1046 17 22 16.1046 22 15V4C22 2.89543 21.1046 2 20 2H4ZM4 4H20V15H10.5858L8 16.8284V15H4V4ZM7 7C7 6.44772 7.44772 6 8 6H16C16.5523 6 17 6.44772 17 7C17 7.55228 16.5523 8 16 8H8C7.44772 8 7 7.55228 7 7ZM8 10C7.44772 10 7 10.4477 7 11C7 11.5523 7.44772 12 8 12H12C12.5523 12 13 11.5523 13 11C13 10.4477 12.5523 10 12 10H8Z" fill="white"/>
+        </svg>
+    </div>
+    
+
+    <!-- Chatbot container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <svg class="close-icon" id="close-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M18.3 5.7a1 1 0 0 1 0 1.4L13.4 12l4.9 4.9a1 1 0 0 1-1.4 1.4l-4.9-4.9-4.9 4.9a1 1 0 1 1-1.4-1.4l4.9-4.9-4.9-4.9a1 1 0 0 1 1.4-1.4l4.9 4.9 4.9-4.9a1 1 0 0 1 1.4 0z"/>
+        </svg>
+        <iframe src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/27/17/20241027173858-3FIIHHLA.json" allow="microphone; camera"></iframe>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

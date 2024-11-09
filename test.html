@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .complaint-section {
+            padding: 20px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .complaint-section.cyber {
+            background: linear-gradient(135deg, #9b6dff 0%, #6c4cb3 100%);
+        }
+
+        .complaint-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .complaint-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            background-color: #27ae60;
+        }
+
+        .complaint-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .complaint-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .complaint-btn:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .complaint-section {
+                padding: 15px;
+                margin: 15px 10px;
+            }
+
+            .complaint-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                width: 80%;
+                max-width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .complaint-section {
+                padding: 10px;
+                margin: 10px 5px;
+            }
+
+            .complaint-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+                width: 90%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="complaint-section">
+        <h2>Financial Fraud</h2>
+        <button class="complaint-btn" onclick="handleComplaint('financial')">
+            Register a Complaint
+        </button>
+    </div>
+
+    <div class="complaint-section cyber">
+        <h2>Other Cyber Crime</h2>
+        <button class="complaint-btn" onclick="handleComplaint('cyber')">
+            Register a Complaint
+        </button>
+    </div>
+
+    <script>
+        function handleComplaint(type) {
+            // Add ripple effect
+            const button = event.currentTarget;
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            
+            // Show custom alert based on type
+            if (type === 'financial') {
+                alert('Financial Fraud Complaint Registration Initiated');
+            } else if (type === 'cyber') {
+                alert('Cyber Crime Complaint Registration Initiated');
+            }
+        }
+    </script>
+</body>
+</html>

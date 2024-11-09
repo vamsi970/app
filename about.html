@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Events into Communities</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(18, 17, 52);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            flex-basis: 50%;
+        }
+
+        .header-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .header-content p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .header-image {
+            flex-basis: 50%;
+            text-align: right;
+        }
+        
+        .header-image img {
+            border-radius: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .header-content {
+                flex-basis: auto;
+                margin-bottom: 30px;
+            }
+
+            .header-content h1 {
+                font-size: 28px;
+            }
+
+            .header-content p {
+                font-size: 16px;
+            }
+
+            .header-image {
+                flex-basis: auto;
+                text-align: center;
+            }
+
+            .header-image img {
+                max-width: 80%;
+            }
+
+            section {
+                margin-bottom: 40px;
+            }
+
+            section h2 {
+                font-size: 20px;
+            }
+
+            section p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header-content h1 {
+                font-size: 24px;
+            }
+
+            .header-content p {
+                font-size: 14px;
+            }
+
+            .header-image img {
+                max-width: 100%;
+            }
+        }
+
+.back-button {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* final touch with contact me */
+/* Footer Styles */
+footer {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.links {
+  transition: transform 0.5s ease;
+  line-height: 1.6;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.links img {
+  height: 30px;
+}
+
+#foot {
+  color: black;
+  font-size: 25px;
+  font-family: "Poppins", sans-serif;
+  margin: 15px 0;
+}
+
+.first .bbtn1 {
+  background-color: purple;
+  color: white;
+  padding: 12px;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.first .bbtn2 {
+  background-color: white;
+  color: purple;
+  padding: 13px 24px;
+  border: 3px solid purple;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button {
+  padding: 60px 0;
+}
+
+.container > h3 {
+  color: black;
+  position: relative;
+  right: -200px;
+  font-family: sans-serif;
+  font-size: 26px;
+}
+
+.sec {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  align-items: center;
+}
+
+.sub {
+  width: 33%;
+  border-radius: 18px;
+  border: 3px solid white;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.sub > h2 {
+  color: white;
+  font-size: 30px;
+  font-family: "Poppins";
+}
+
+#submit {
+  margin: 10px 0;
+  color: white;
+  font-family: "Poppins";
+  padding: 15px 50px;
+  background-color: purple;
+  border-radius: 20px;
+  border: 2px solid blue;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-input {
+  height: 30px;
+  width: 75%;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  footer {
+    padding: 10px;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .links img {
+    height: 24px;
+  }
+
+  #foot {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+
+  .first .bbtn1,
+  .first .bbtn2 {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 40px 0;
+  }
+
+  .container > h3 {
+    font-size: 22px;
+    right: -150px;
+  }
+
+  .sec {
+    flex-direction: column;
+  }
+
+  .sub {
+    width: 80%;
+  }
+
+  .sub > h2 {
+    font-size: 24px;
+  }
+
+  #submit {
+    padding: 12px 40px;
+  }
+
+  .form-input {
+    height: 28px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links img {
+    height: 20px;
+  }
+
+  #foot {
+    font-size: 18px;
+  }
+
+  .first .bbtn1,
+  .first .bbtn2 {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .button {
+    padding: 30px 0;
+  }
+
+  .container > h3 {
+    font-size: 20px;
+    right: -120px;
+  }
+
+  .sub {
+    width: 90%;
+  }
+
+  .sub > h2 {
+    font-size: 22px;
+  }
+
+  #submit {
+    padding: 10px 30px;
+  }
+
+  .form-input {
+    height: 26px;
+    width: 90%;
+  }
+}
+
+    /* Centered Button Styling */
+    .btn {
+        background-color: purple;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Center the button in the section */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-button" onclick="history.back()">← Back</div>
+        <header>
+            <div class="header-content">
+                <h1>About us</h1>
+                <p>At Safeguard, we arm women with safety tools, emergency access, welfare resources, and self-defense guidance to ensure a safe and accessible platform for building confidence and protection in every moment.</p>
+            </div>
+            <div class="header-image">
+                <img src="about.jpeg" alt="Event to Community">
+            </div>
+        </header>
+
+        <section>
+            <h2>Our Mission</h2>
+            <p>The mission of Safeguard is to create a safer environment for women by giving them the right tools to ensure their safety. It builds confidence and protection through fast access to emergency contacts, welfare resources, and self-defense training.</p>
+           
+        </section>
+
+        <section>
+            <h2>Our Vision</h2>
+            <p>This emergency app equips women with emergency contacts, real-time location sharing, welfare program details, cybersecurity resources, and a self-defense training locator-all providing rapid support, informed choices, online safety, and personal security training in one app.</p>
+           
+        </section>
+
+        <section>
+            <h2>Join Us</h2>
+            <p>Join us—users, advocates, and community groups—in our mission to boost women's safety and confidence. Together, we can foster a supportive culture that values empowerment and ensures a safer environment for all.</p>
+           
+            <div class="button-container">
+                <button class="btn">Join Us</button>
+            </div>
+        </section>
+
+        <footer>
+            <div class="sec" id="contact">
+                <div class="sub">
+                    <h2>Contact Me</h2>
+                    <form id="contactForm">
+                        <input type="text" name="name" id="name" class="form-input" placeholder="Enter name" required>
+                        <input type="email" name="email" id="email" class="form-input" placeholder="Enter email ID" required>
+                        <input type="tel" id="number" name="number" class="form-input" placeholder="Enter phone number" required>
+                        <div class="sign">
+                            <button type="submit" id="submit">SUBMIT</button>
+                        </div>
+                    </form>
+                  </div>
+      
+                <div class="last">
+                    <div id="foot">Social Links</div>
+                    <div class="links">
+                        <a href="mailto:safeguardforwomen.com"><img src="gmail.svg" alt="Gmail"></a>
+                        <a href="/"><img src="twitter.svg" alt="Twitter"></a>
+                        <a href="/"><img src="youtube.svg" alt="Youtube"></a>
+                        <a href="https://www.instagram.com/safe.guardwomenprotection/"><img src="instagram.svg" alt="Instagram"></a>
+                        <!-- <a href="/"><img src="/portfolio/square-reddit.svg" alt="Reddit"></a> -->
+                    </div>
+                </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* Reset box-sizing for consistent layout */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 61%, rgba(0,212,255,1) 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Main container styling */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px; /* Uniform padding on all sides */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.container img {
+    width: 80px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+    padding: 0 10px; /* Adds padding within each form field */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input and button styling */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* Profile picture styling */
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #444;
+    color: #fff;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#uploadButton {
+    margin-top: 20px;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px; /* Ensure padding on small screens */
+        margin: 20px; /* Add margin to prevent touching screen edges */
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .container img {
+        width: 60px;
+    }
+}

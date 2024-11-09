@@ -1,0 +1,110 @@
+/* Basic Styles */
+body{
+    height: 100vh;
+    background-color: #1c1b58;
+    font-family: "poppins";
+}
+
+.profile-container {
+    width: 100%;
+    text-align: left;
+}
+
+.back-button {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6a0dad;
+    padding: 20px;
+    color: #ffffff;
+    border-radius: 22px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #444;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-header h2{
+    font-size: 30px;
+}
+.profile-header p{
+    font-size: 23px;
+}
+
+.profile-options {
+    margin-top: 15px;
+}
+
+.profile-option {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.profile-option:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: underline;
+}
+
+/* Media Queries
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 10px;
+        width: 100%;
+        margin: 0 20px;
+    }
+    .profile-picture {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 5px;
+    }
+    .profile-header {
+        padding: 15px;
+    }
+    .profile-picture {
+        width: 60px;
+        height: 60px;
+    }
+    .profile-option {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-container {
+        max-width: 500px;
+    }
+} */
+
+.box{
+    margin: 10px;
+    text-align: center;
+    background-color: #6a0dad;
+    border-radius: 10px;
+    border: 2px solid black;
+}
